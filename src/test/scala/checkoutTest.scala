@@ -13,8 +13,8 @@ class checkoutTest extends FlatSpec with Matchers {
   "ordering two apples" should "amount to 50p" in {
     val apple = Apple()
     val checkout=Checkout
-    val list=List("Apple","Apple")
-    checkout.orderApples(list,apple) should be (50)
+    val list=List("Apple")
+    checkout.orderApples(list,apple) should be (25)
   }
 
   "ordering 0 apples" should "amount to 0" in {
@@ -28,6 +28,13 @@ class checkoutTest extends FlatSpec with Matchers {
     val orange = Orange()
     val checkout=Checkout
     val list=List("orange","orange")
+    checkout.orderOranges(list,orange) should be (120)
+  }
+
+  "ordering three oranges" should "amount to 120p" in {
+    val orange = Orange()
+    val checkout=Checkout
+    val list=List("orange","orange","orange")
     checkout.orderOranges(list,orange) should be (120)
   }
 

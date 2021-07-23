@@ -24,11 +24,15 @@ object Main
 
     def orderApples(items: List[String],apple: Apple)={
       val apples=for(item<-items if(item.toLowerCase=="apple")) yield apple.price
-      apples.sum
+      if (apples.length==1) apple.price else{
+        if(apples.length%2==0 ){ apples.sum/2}else (apples.length*apple.price/2)+ apple.price
+      }
+
     }
     def orderOranges(items: List[String],orange: Orange)={
       val oranges=for(item<-items if(item.toLowerCase=="orange")) yield orange.price
-      oranges.sum
+
+      ((oranges.length/3) *orange.price*2) +((oranges.length%3) * orange.price)
 
     }
   }
